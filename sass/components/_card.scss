@@ -24,12 +24,11 @@
         }
 
         &--back{
-            background-color: rgb(19, 233, 248);
             border: .1rem solid $color-grey-light;
             transform: rotateY(180deg);
 
             &-1{
-                background-image: linear-gradient(to right bottom, $color-white, $color-green-dark);
+                background-image: linear-gradient(to right bottom, $color-white, $color-green-light);
             }
         }
     }

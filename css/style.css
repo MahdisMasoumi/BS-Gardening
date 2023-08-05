@@ -82,6 +82,8 @@ body {
     background-image: linear-gradient(to right, #55c57a, #314231); }
   .heading-secondary--2 {
     background-image: linear-gradient(to right, #bcf1c9, #314231); }
+  .heading-secondary--3 {
+    color: #fff; }
   .heading-secondary--font {
     font-size: 2rem; }
   .heading-secondary:hover {
@@ -92,8 +94,7 @@ body {
   color: #000;
   font-size: 1.6rem;
   font-weight: 520;
-  text-transform: uppercase;
-  text-shadow: 0.5rem 0.1rem 2.5rem #55c57a; }
+  text-transform: uppercase; }
 
 .paragraph {
   font-size: 1.6rem;
@@ -120,7 +121,6 @@ body {
   height: 100%;
   width: 100%;
   z-index: -1;
-  opacity: .55;
   overflow: hidden; }
   .bg-video__content {
     height: 100%;
@@ -187,16 +187,17 @@ body {
 
 .btn-text:link, .btn-text:visited {
   font-size: 1.6rem;
-  color: #55c57a;
+  color: #000;
   display: inline-block;
   text-decoration: none;
-  border-bottom: 1px solid #55c57a;
+  border-bottom: 1px solid #000;
   padding: 3px;
-  transition: all .2s; }
+  transition: all .2s;
+  text-shadow: 0.5rem 0.1rem 2.5rem #55c57a; }
 
 .btn-text:hover {
   background-color: #55c57a;
-  color: #fff;
+  color: #000;
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
   transform: translateY(-2px); }
 
@@ -252,11 +253,10 @@ body {
       background-color: #fff;
       border: 0.1rem solid #878383; }
     .card__side--back {
-      background-color: #13e9f8;
       border: 0.1rem solid #878383;
       transform: rotateY(180deg); }
       .card__side--back-1 {
-        background-image: linear-gradient(to right bottom, #fff, #4b984d); }
+        background-image: linear-gradient(to right bottom, #fff, #7fa080); }
   .card:hover .card__side--front {
     transform: rotateY(-180deg);
     border: 0.1rem solid #878383; }
@@ -429,6 +429,44 @@ body {
     transform: translateY(-4rem) scale(1);
     filter: blur(3px) brightness(80%); }
 
+.footer {
+  color: #f7f7f7;
+  background-color: #7fa080;
+  padding: 5rem 0;
+  font-size: 1.4rem; }
+  .footer__logo-box {
+    text-align: center;
+    margin-bottom: 5rem; }
+  .footer__logo {
+    width: 15rem;
+    height: 10rem;
+    height: auto; }
+  .footer__navigation {
+    border-top: 1px solid #f7f7f7;
+    padding-top: 2rem;
+    display: inline-block; }
+  .footer__list {
+    list-style: none; }
+  .footer__item {
+    display: inline-block; }
+    .footer__item:not(:last-child) {
+      margin-right: 1.5rem; }
+  .footer__link:link, .footer__link:visited {
+    color: #f7f7f7;
+    background-color: #7fa080;
+    text-decoration: none;
+    text-transform: uppercase;
+    display: inline-block;
+    transition: all .2s; }
+  .footer__link:hover, .footer__link:active {
+    color: #f7f7f7;
+    transform: rotate(5deg) scale(1.2); }
+  .footer__copyright {
+    border-top: 1px solid #f7f7f7;
+    padding-top: 2rem;
+    display: inline-block;
+    margin-left: 34rem; }
+
 .header {
   height: 95vh;
   background-image: linear-gradient(to right bottom, rgba(135, 131, 131, 0.5), rgba(0, 0, 0, 0.5)), url(../img/garden.jpg);
@@ -484,16 +522,24 @@ body {
   margin-top: -20vh; }
 
 .section-plants {
-  background-color: #fff;
-  padding: 0rem 0 10rem 0; }
+  padding: 10rem 0;
+  background-image: linear-gradient(180deg, #7fa080, white);
+  background-size: cover;
+  transform: skewY(-6deg);
+  margin-top: -10rem;
+  z-index: 0; }
+  .section-plants > * {
+    transform: skewY(6deg); }
 
 .section-stories {
+  margin-top: -8rem;
+  z-index: 1;
   position: relative;
   padding: 15rem 0; }
 
 .section-subscribe {
-  padding: 15rem 5rem;
-  background-image: linear-gradient(to right bottom, #fff, #4b984d); }
+  padding: 10rem 5rem;
+  background-image: linear-gradient(180deg, #fff, #7fa080); }
 
 .subscribe {
   background-image: linear-gradient(105deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.8) 50%, transparent 50%), url(../img/hero-3.jpg);

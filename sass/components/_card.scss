@@ -1,109 +1,171 @@
 .card {
+  // Functionality
+  perspective: 150rem;
+  -moz-perspective: 150rem;
+  position: relative;
+  height: 45rem;
 
-    // Functionality
-    perspective: 150rem;
-    -moz-perspective: 150rem;
-    position: relative;
+  &__side {
     height: 45rem;
+    transition: all 0.8s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: $default-border-radius;
+    overflow: hidden;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, 0.15);
+
+    &--front {
+      background-color: $color-white;
+      border: 0.1rem solid $color-grey-light;
+    }
+
+    &--back {
+      border: 0.1rem solid $color-grey-light;
+      transform: rotateY(180deg);
+
+      &-1 {
+        background-image: linear-gradient(
+          to right bottom,
+          $color-white,
+          $color-green-light
+        );
+      }
+    }
+  }
+
+  &:hover &__side--front {
+    transform: rotateY(-180deg);
+    border: 0.1rem solid $color-grey-light;
+  }
+
+  &:hover &__side--back {
+    transform: rotateY(0);
+    border: 0.1rem solid $color-grey-light;
+  }
+
+  // FRONT SIDE STYLING
+  &__picture {
+    background-size: cover;
+    margin-bottom: 2.5rem;
+    width: 101%;
+    height: 33rem;
+    background-blend-mode: screen;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 88%, 0 100%);
+
+    &--1 {
+      background-image: linear-gradient(
+          to right bottom,
+          $color-grey-dark,
+          $color-black
+        ),
+        url(../img/pla-4.jpg);
+    }
+    &--2 {
+      background-image: linear-gradient(
+          to right bottom,
+          $color-grey-dark,
+          $color-black
+        ),
+        url(../img/pla-5.jpg);
+    }
+    &--3 {
+      background-image: linear-gradient(
+          to right bottom,
+          $color-grey-dark,
+          $color-black
+        ),
+        url(../img/pla-6.jpg);
+    }
+  }
+  &__heading {
+    font-size: 2.5rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    text-align: right;
+    color: $color-white;
+    position: absolute;
+    top: 25rem;
+    right: 1rem;
+    width: 75%;
+  }
+
+  &__heading-span {
+    padding: 1rem 1.5rem;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+
+    &--1 {
+      background-image: linear-gradient(
+        to right bottom,
+        rgba($color-white, 0.8),
+        rgba($color-grey-dark, 0.9)
+      );
+    }
+  }
+
+  &__details {
+    text-align: center;
+    padding: 2rem;
+    color: $color-black;
+  }
+  // BACK SIDE STYLING
+  &__cta {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 90%;
+  }
+
+  @include respond(tab-port) {
+    height: auto;
+    border-radius: 3px;
+    background-color: $color-white;
+    border: none;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, 0.15);
 
     &__side {
-        height: 45rem;
-        transition: all .8s ease;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        backface-visibility: hidden;
-        border-radius: $default-border-radius;
-        overflow: hidden;
-        box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
+      height: auto;
+      position: relative;
+      box-shadow: none;
 
-        &--front{
-            background-color: $color-white;
-            border: .1rem solid $color-grey-light;
-        }
+      &--front {
+        border: none;
+      }
 
-        &--back{
-            border: .1rem solid $color-grey-light;
-            transform: rotateY(180deg);
-
-            &-1{
-                background-image: linear-gradient(to right bottom, $color-white, $color-green-light);
-            }
-        }
-    }
-    
-
-    &:hover &__side--front{
-        transform: rotateY(-180deg);
-        border: .1rem solid $color-grey-light;
-    }
-
-    &:hover &__side--back{
+      &--back {
+        border: none;
         transform: rotateY(0);
-        border: .1rem solid $color-grey-light;
+        clip-path: polygon(0 15%, 100% 0, 100% 100%, 0% 100%);
+      }
     }
 
-    // FRONT SIDE STYLING 
-    &__picture{
-        background-size: cover;
-        margin-bottom: 2.5rem;
-        width: 101%;
-        height: 33rem;
-        background-blend-mode: screen;
-        -webkit-clip-path: polygon(0 0, 100% 0 , 100% 85% , 0 100%);
-        clip-path: polygon(0 0, 100% 0 , 100% 88% , 0 100%);
-
-        &--1{
-            background-image: linear-gradient(to right bottom, $color-grey-dark, $color-black),
-            url(../img/pla-4.jpg)
-        }
-        &--2{
-            background-image: linear-gradient(to right bottom, $color-grey-dark, $color-black),
-             url(../img/pla-5.jpg)
-        }
-        &--3{
-            background-image: linear-gradient(to right bottom, $color-grey-dark, $color-black),
-             url(../img/pla-6.jpg)
-        }
+    &:hover &__side--front {
+      border: none;
+      transform: rotateY(0);
     }
-    &__heading{
-        font-size: 2.5rem;
-        font-weight: 300;
-        text-transform: uppercase;
-        text-align: right;
-        color: $color-white;
-        position: absolute;
-        top: 25rem;
-        right: 1rem;
-        width: 75%;
+    &:hover &__side--back {
+      border: none;
     }
 
-    &__heading-span {
-        padding: 1rem 1.5rem;
-        -webkit-box-decoration-break: clone;
-        box-decoration-break: clone;
-
-        &--1 {
-            background-image: linear-gradient(to right bottom, rgba($color-white , .8), 
-            rgba($color-grey-dark, .9));
-        }
-        
+    &__details {
+      padding: 1rem 3rem;
     }
 
-    &__details{
-        text-align: center;
-        padding: 2rem;
-        color:$color-black;
+    // FRONT SIDE STYLING
+    &__cta {
+      position: relative;
+      top: 0%;
+      left: 0;
+      transform: translate(0);
+      width: 100%;
+      padding: 7rem 4rem 4rem 4rem;
     }
-    // BACK SIDE STYLING 
-    &__cta{
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        text-align: center;
-        width: 90%;
-    }
+  }
 }
-
